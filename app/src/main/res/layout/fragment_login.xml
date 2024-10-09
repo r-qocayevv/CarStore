@@ -15,6 +15,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <Button
                 android:id="@+id/loginBtn"
                 android:layout_width="match_parent"
@@ -61,7 +62,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/loginText" />
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/phoneNumCardView"
+                android:id="@+id/passwordCardView"
                 android:layout_width="0dp"
                 android:layout_height="64dp"
                 android:layout_marginTop="16dp"
@@ -88,13 +89,13 @@
                         android:inputType="text"
                         android:password="true"
                         android:textColorHint="@color/hintColor"
-                        app:layout_constraintBottom_toBottomOf="@+id/imageView5"
+                        app:layout_constraintBottom_toBottomOf="@+id/passwordImage"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/imageView5"
-                        app:layout_constraintTop_toTopOf="@+id/imageView5" />
+                        app:layout_constraintStart_toEndOf="@+id/passwordImage"
+                        app:layout_constraintTop_toTopOf="@+id/passwordImage" />
 
                     <ImageView
-                        android:id="@+id/imageView5"
+                        android:id="@+id/passwordImage"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="24dp"
@@ -132,13 +133,13 @@
                         android:hint="@string/email_address"
                         android:inputType="textEmailAddress"
                         android:textColorHint="@color/hintColor"
-                        app:layout_constraintBottom_toBottomOf="@+id/emailImageView"
+                        app:layout_constraintBottom_toBottomOf="@+id/emailAddressImage"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/emailImageView"
-                        app:layout_constraintTop_toTopOf="@+id/emailImageView" />
+                        app:layout_constraintStart_toEndOf="@+id/emailAddressImage"
+                        app:layout_constraintTop_toTopOf="@+id/emailAddressImage" />
 
                     <ImageView
-                        android:id="@+id/emailImageView"
+                        android:id="@+id/emailAddressImage"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="24dp"
@@ -159,7 +160,7 @@
                 android:text="@string/forgot_password"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/phoneNumCardView" />
+                app:layout_constraintTop_toBottomOf="@+id/passwordCardView" />
 
             <LinearLayout
                 android:layout_width="wrap_content"

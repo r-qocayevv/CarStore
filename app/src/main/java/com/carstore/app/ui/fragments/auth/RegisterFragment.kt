@@ -40,7 +40,7 @@ class RegisterFragment : Fragment() {
             val emailAddress = binding.emailAddressET.text.toString()
             val password  = binding.passwordET.text.toString()
             val fullName = binding.fullNameET.text.toString()
-            val phoneNum = binding.phoneNumET.text.toString()
+            val phoneNum = binding.phoneNumberET.text.toString()
             registerViewModel.signUp(fullName,phoneNum,emailAddress,password,requireActivity(),it)
         }
 

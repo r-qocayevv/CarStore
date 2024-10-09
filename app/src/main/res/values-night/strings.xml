@@ -14,7 +14,7 @@
     <string name="home">Home</string>
     <string name="favorites">Favorites</string>
     <string name="account">Account</string>
-    <string name="enter_email_adress">Enter email adress</string>
+    <string name="enter_email_adress">Enter email address</string>
     <string name="see_all">See all</string>
     <string name="recommended">Recommended</string>
     <string name="username">Username</string>
@@ -23,4 +23,7 @@
     <string name="save">Save</string>
     <string name="change_password">Change password</string>
     <string name="logout">Logout</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="sell_car">Sell car</string>
 </resources>

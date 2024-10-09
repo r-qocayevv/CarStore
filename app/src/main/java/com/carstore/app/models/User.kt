@@ -1,7 +1,6 @@
 package com.carstore.app.models
 
-data class User (val uid : String,
-                 val fullName : String,
+data class User (val fullName : String,
                  val emailAddress : String,
                  val phoneNumber : String){
 }

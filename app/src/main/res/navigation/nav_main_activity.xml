@@ -16,15 +16,63 @@
         <action
             android:id="@+id/action_homeFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_sellCarFragment"
+            app:destination="@id/sellCarFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_carDetailsFragment"
+            app:destination="@id/carDetailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/favoritesFragment"
         android:name="com.carstore.app.ui.fragments.main.FavoritesFragment"
         android:label="fragment_favorites"
-        tools:layout="@layout/fragment_favorites" />
+        tools:layout="@layout/fragment_favorites" >
+        <action
+            android:id="@+id/action_favoritesFragment_to_carDetailsFragment"
+            app:destination="@id/carDetailsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.carstore.app.ui.fragments.main.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_changePasswordFragment"
+            app:destination="@id/changePasswordFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/changePasswordFragment"
+        android:name="com.carstore.app.ui.fragments.main.ChangePasswordFragment"
+        android:label="fragment_change_password"
+        tools:layout="@layout/fragment_change_password" />
+    <fragment
+        android:id="@+id/sellCarFragment"
+        android:name="com.carstore.app.ui.fragments.main.SellCarFragment"
+        android:label="fragment_sell_car"
+        tools:layout="@layout/fragment_sell_car" >
+        <action
+            android:id="@+id/action_sellCarFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/carDetailsFragment"
+        android:name="com.carstore.app.ui.fragments.main.CarDetailsFragment"
+        android:label="fragment_car_details"
+        tools:layout="@layout/fragment_car_details" >
+        <argument
+            android:name="carDetails"
+            app:argType="com.carstore.app.models.Car"
+            app:nullable="true"
+            android:defaultValue="@null" />
+        <action
+            android:id="@+id/action_carDetailsFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_carDetailsFragment_to_favoritesFragment"
+            app:destination="@id/favoritesFragment" />
+        <argument
+            android:name="documentID"
+            app:argType="string" />
+    </fragment>
 </navigation>

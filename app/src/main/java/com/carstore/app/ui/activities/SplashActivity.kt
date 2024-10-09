@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.lifecycleScope
 import com.carstore.app.R
 import com.carstore.app.databinding.ActivitySplashBinding
@@ -16,7 +17,7 @@ import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-class SplashActivity : AppCompatActivity() {
+class SplashActivity : AppCompatActivity(),LifecycleOwner {
     private var _binding : ActivitySplashBinding? = null
     val binding get() = _binding!!
     private val splashScreenViewModel : SplashScreenViewModel by viewModels()
@@ -36,24 +37,29 @@ class SplashActivity : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
 
+        splashScreenViewModel.checkUser(auth)
         checkUser()
 
     }
 
     private fun checkUser () {
-        lifecycleScope.launch {
-            val checkUser = splashScreenViewModel.checkUser(auth)
-            delay(2000)
-            if (checkUser){
-                val intent = Intent(this@SplashActivity,MainActivity::class.java)
-                startActivity(intent)
-                finish()
-            }else{
-                val intent = Intent(this@SplashActivity,AuthActivity::class.java)
-                startActivity(intent)
-                finish()
+            splashScreenViewModel.currentUserIsNull.observe(this@SplashActivity){ currentUserIsNull ->
+                lifecycleScope.launch {
+                    delay(2000)
+                    if (currentUserIsNull){
+                        val intent = Intent(this@SplashActivity,AuthActivity::class.java)
+                        startActivity(intent)
+                        finish()
+                    }else{
+                        val intent = Intent(this@SplashActivity,MainActivity::class.java)
+                        startActivity(intent)
+                        finish()
+                    }
+                }
+
             }
-        }
+
+
     }
 
     override fun onDestroy() {

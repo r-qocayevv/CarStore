@@ -9,15 +9,22 @@ import dagger.hilt.android.scopes.ViewModelScoped
 
 @ViewModelScoped
 class SplashScreenViewModel(application : Application) : AndroidViewModel(application){
+    private val _currentUserIsNull : MutableLiveData<Boolean> = MutableLiveData()
+    var currentUserIsNull : LiveData<Boolean> = _currentUserIsNull
 
-    fun checkUser (auth: FirebaseAuth) : Boolean {
-        val currentUser = auth.currentUser
-        if (currentUser != null) {
-            return true
+    fun checkUser (auth: FirebaseAuth)  {
+        if (auth.currentUser != null) {
+            auth.currentUser?.reload()?.addOnCompleteListener {
+                val currentUser = auth.currentUser
+                if (currentUser != null) {
+                    _currentUserIsNull.value = false
+                }else {
+                    _currentUserIsNull.value = true
+                }
+            }
         }else {
-            return false
+            _currentUserIsNull.value = true
         }
-
     }
 
 

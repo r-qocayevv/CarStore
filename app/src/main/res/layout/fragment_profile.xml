@@ -8,17 +8,30 @@
     android:layout_height="match_parent"
     android:background="@color/backgroundColor">
 
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminateTint="@color/orange"
+        app:layout_constraintBottom_toBottomOf="@+id/scrollView2"
+        app:layout_constraintEnd_toEndOf="@+id/scrollView2"
+        app:layout_constraintStart_toStartOf="@+id/scrollView2"
+        app:layout_constraintTop_toTopOf="@+id/scrollView2" />
+
     <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/phoneNumCardView"
+                android:id="@+id/phoneNumberCardView"
                 android:layout_width="0dp"
                 android:layout_height="32dp"
                 android:layout_marginStart="16dp"
@@ -164,7 +177,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="32dp"
                 android:layout_marginEnd="16dp"
                 android:text="@string/save"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -182,7 +195,7 @@
                 app:cardCornerRadius="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/phoneNumCardView">
+                app:layout_constraintTop_toBottomOf="@+id/phoneNumberCardView">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -212,33 +225,8 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
 
-            <Button
-                android:id="@+id/logoutBtn"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="32dp"
-                android:layout_marginEnd="32dp"
-                android:layout_marginBottom="90dp"
-                android:backgroundTint="#74CDCECF"
-                android:fontFamily="@font/poppins_semibold"
-                android:text="@string/logout"
-                android:textAlignment="textStart"
-                android:textColor="@android:color/holo_red_dark"
-                android:textSize="20sp"
-                app:cornerRadius="3dp"
-                app:icon="@drawable/ic_logout"
-                app:iconGravity="end"
-                app:iconSize="25dp"
-                app:iconTint="@android:color/holo_red_dark"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/saveBtn" />
-
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 
     </ScrollView>

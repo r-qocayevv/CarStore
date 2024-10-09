@@ -15,7 +15,7 @@
         android:layout_height="61dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="32dp"
         android:background="@drawable/nav_background_curved"
         android:padding="0dp"
         app:elevation="5dp"

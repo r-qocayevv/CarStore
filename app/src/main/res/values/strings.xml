@@ -24,6 +24,8 @@
     <string name="save">Save</string>
     <string name="change_password">Change password</string>
     <string name="logout">Logout</string>
-
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="sell_car">Sell car</string>
 
 </resources>

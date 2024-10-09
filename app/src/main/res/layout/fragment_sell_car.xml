@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.fragments.main.SellCarFragment"
+    android:background="@color/backgroundColor">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/locationText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Location"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/priceText"
+            app:layout_constraintStart_toStartOf="@+id/brandCardView"
+            app:layout_constraintTop_toTopOf="@+id/priceText" />
+
+        <TextView
+            android:id="@+id/priceText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Price"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@+id/modelCardView"
+            tools:layout_editor_absoluteX="354dp"
+            app:layout_constraintStart_toStartOf="@id/priceCardView"/>
+
+        <TextView
+            android:id="@+id/brandText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Brand"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/modelText"
+            app:layout_constraintStart_toStartOf="@+id/radioGroup"
+            app:layout_constraintTop_toTopOf="@+id/modelText" />
+
+        <TextView
+            android:id="@+id/conditionText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Condition"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:checkedButton="@id/usedRadioButton"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="@+id/yearCardView"
+            app:layout_constraintStart_toStartOf="@+id/conditionText"
+            app:layout_constraintTop_toTopOf="@+id/yearCardView">
+
+            <RadioButton
+                android:id="@+id/newRadioButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="New" />
+
+            <RadioButton
+                android:id="@+id/usedRadioButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:text="Used" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/yearText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Year"
+            android:textSize="16sp"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="357dp"
+            app:layout_constraintStart_toStartOf="@id/yearCardView"/>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/yearCardView"
+            android:layout_width="147dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:backgroundTint="#EDEEEF"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/yearText">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <EditText
+                    android:id="@+id/yearET"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@null"
+                    android:ems="10"
+                    android:fontFamily="@font/poppins_medium"
+                    android:hint="Enter year"
+                    android:inputType="number"
+                    android:maxLines="1"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/modelText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Model"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/modelCardView"
+            app:layout_constraintTop_toBottomOf="@+id/yearCardView" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/brandCardView"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="8dp"
+            android:backgroundTint="#EDEEEF"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintBottom_toBottomOf="@+id/modelCardView"
+            app:layout_constraintEnd_toStartOf="@+id/modelCardView"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/brandText"
+            app:layout_constraintTop_toTopOf="@+id/modelCardView">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <Spinner
+                    android:id="@+id/brandSpinner"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:spinnerMode="dropdown"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/modelCardView"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:backgroundTint="#EDEEEF"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/brandCardView"
+            app:layout_constraintTop_toBottomOf="@+id/modelText">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <Spinner
+                    android:id="@+id/modelSpinner"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/priceCardView"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:backgroundTint="#EDEEEF"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/locationCardView"
+            app:layout_constraintTop_toBottomOf="@+id/priceText">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <EditText
+                    android:id="@+id/priceET"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:background="@null"
+                    android:ems="10"
+                    android:fontFamily="@font/poppins_medium"
+                    android:hint="Enter price"
+                    android:inputType="number"
+                    android:maxLines="1"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/locationCardView"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="8dp"
+            android:backgroundTint="#EDEEEF"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintBottom_toBottomOf="@+id/priceCardView"
+            app:layout_constraintEnd_toStartOf="@+id/priceCardView"
+            app:layout_constraintStart_toStartOf="@+id/locationText"
+            app:layout_constraintTop_toTopOf="@+id/priceCardView" >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/locationImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:src="@drawable/ic_location"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/locationET"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:background="@null"
+                    android:ems="10"
+                    android:fontFamily="@font/poppins_medium"
+                    android:hint="Search location"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/locationImage"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/uploadImageText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Upload Images"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/locationCardView"
+            app:layout_constraintTop_toBottomOf="@+id/priceCardView" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/uploadedImagesCardView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:backgroundTint="#EDEEEF"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/uploadImageText"
+            app:layout_constraintTop_toBottomOf="@+id/uploadImageText">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/imagesRecyclerView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/uploadImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:src="@drawable/upload_image"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imagesRecyclerView" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="24dp"
+                    android:layout_marginBottom="8dp"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:text="Upload images"
+                    android:textSize="10sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/uploadImage"
+                    app:layout_constraintStart_toStartOf="@+id/uploadImage"
+                    app:layout_constraintTop_toBottomOf="@+id/uploadImage" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/descriptionText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Description"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/uploadedImagesCardView"
+            app:layout_constraintTop_toBottomOf="@+id/uploadedImagesCardView" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/descriptionCardView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:backgroundTint="#EDEEEF"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/descriptionText"
+            app:layout_constraintTop_toBottomOf="@+id/descriptionText">
+
+            <EditText
+                android:id="@+id/descriptionET"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:ems="10"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="start|top"
+                android:hint="Write description about your car"
+                android:inputType="textMultiLine"
+                android:maxLength="300"
+                android:padding="8dp" />
+        </androidx.cardview.widget.CardView>
+
+        <Button
+            android:id="@+id/shareBtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="64dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="64dp"
+            android:layout_marginBottom="16dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="Share"
+            app:cornerRadius="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/descriptionCardView" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

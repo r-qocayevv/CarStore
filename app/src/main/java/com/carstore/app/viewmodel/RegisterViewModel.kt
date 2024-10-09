@@ -8,14 +8,18 @@ import android.widget.Toast
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.carstore.app.models.User
 import com.carstore.app.ui.activities.MainActivity
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.database
 import dagger.hilt.android.scopes.ViewModelScoped
 
 @ViewModelScoped
 class RegisterViewModel(application: Application) : AndroidViewModel(application) {
     val auth  : FirebaseAuth = FirebaseAuth.getInstance()
+    val db = Firebase.database
 
     private var _loadingProgressBar : MutableLiveData<Boolean> = MutableLiveData(false)
     val loadingProgressBar : LiveData<Boolean> = _loadingProgressBar
@@ -27,6 +31,7 @@ class RegisterViewModel(application: Application) : AndroidViewModel(application
                 _loadingProgressBar.value = false
                 if (task.isSuccessful) {
                     //Start MainActivity
+                    addUserInfoToDB(auth,fullName,email,phoneNumber)
                     val intent = Intent(getApplication(), MainActivity::class.java)
                     activity.startActivity(intent)
                     activity.finish()
@@ -40,4 +45,9 @@ class RegisterViewModel(application: Application) : AndroidViewModel(application
             Snackbar.make(view,"Please fill in all fields",Toast.LENGTH_SHORT).show()
         }
     }
+
+    fun addUserInfoToDB (auth : FirebaseAuth, fullName : String, emailAddress : String, phoneNumber : String) {
+        db.getReference(auth.uid!!).setValue(User(fullName,emailAddress,phoneNumber))
+    }
+
 }

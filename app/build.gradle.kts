@@ -4,6 +4,7 @@ plugins {
     id("com.google.gms.google-services")
     id("kotlin-kapt")
     id("com.google.dagger.hilt.android")
+    id("androidx.navigation.safeargs.kotlin")
 
 }
 
@@ -51,6 +52,7 @@ dependencies {
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
     implementation(libs.firebase.auth)
+    implementation(libs.androidx.legacy.support.v4)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -62,14 +64,27 @@ dependencies {
     //Firebase
     implementation(platform(libs.firebase.bom))
     implementation (libs.firebase.ui.auth)
+    implementation(libs.firebase.firestore)
+    implementation(libs.firebase.storage)
+    implementation(libs.firebase.database)
+
 
     //Hilt
-    implementation("com.google.dagger:hilt-android:2.44")
-    kapt("com.google.dagger:hilt-android-compiler:2.44")
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.android.compiler)
 
     //Circle Image
     implementation (libs.circleimageview)
 
+    //Gson
+    implementation (libs.gson)
+
+    //Retrofit
+    implementation(libs.retrofit)
+    implementation (libs.converter.gson)
+
+    //Picasso
+    implementation (libs.picasso)
 }
     kapt {
         correctErrorTypes = true

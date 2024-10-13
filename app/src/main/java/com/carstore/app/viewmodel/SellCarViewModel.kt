@@ -36,7 +36,6 @@ class SellCarViewModel @Inject constructor(private val repository : CarBrandsAnd
 
     private var response : MutableLiveData<List<CarBrandsAndModels>> = MutableLiveData()
 
-
     private var _brandList : MutableLiveData<List<String>> = MutableLiveData()
     val brandList : LiveData<List<String>> = _brandList
 

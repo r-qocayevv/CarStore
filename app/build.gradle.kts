@@ -85,6 +85,10 @@ dependencies {
 
     //Picasso
     implementation (libs.picasso)
+
+    //View pager
+    implementation (libs.androidx.viewpager2)
+
 }
     kapt {
         correctErrorTypes = true

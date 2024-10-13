@@ -1,13 +1,10 @@
 package com.carstore.app.adapters
 
-import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.Navigation
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.carstore.app.R
 import com.carstore.app.databinding.CarsRowLayoutBinding
 import com.carstore.app.models.Car
 import com.carstore.app.ui.fragments.main.HomeFragmentDirections
@@ -16,7 +13,8 @@ import com.squareup.picasso.Picasso
 
 class AllCarsAdapter() : RecyclerView.Adapter<AllCarsAdapter.Holder>() {
     var carList: List<Car> = emptyList()
-    var documentIdAndCarPost = HashMap<Car,String>()
+    var postIdAndCarPost = HashMap<Car,String>()
+
     inner class Holder(val binding: CarsRowLayoutBinding) : RecyclerView.ViewHolder(binding.root) {
 
     }
@@ -38,9 +36,9 @@ class AllCarsAdapter() : RecyclerView.Adapter<AllCarsAdapter.Holder>() {
         binding.carPrice.text = currentCarPost.price.toString()
 
         binding.cardView.setOnClickListener { viewFromButton ->
-            val documentID = documentIdAndCarPost[currentCarPost]
+            val documentID = postIdAndCarPost[currentCarPost]
             if (documentID != null){
-                val action = HomeFragmentDirections.actionHomeFragmentToCarDetailsFragment(documentID,currentCarPost)
+                val action = HomeFragmentDirections.actionHomeFragmentToCarDetailsFragment(documentID,currentCarPost,)
                 Navigation.findNavController(viewFromButton).navigate(action)
             }
 

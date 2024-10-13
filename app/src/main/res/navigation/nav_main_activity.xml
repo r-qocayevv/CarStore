@@ -72,7 +72,7 @@
             android:id="@+id/action_carDetailsFragment_to_favoritesFragment"
             app:destination="@id/favoritesFragment" />
         <argument
-            android:name="documentID"
+            android:name="postID"
             app:argType="string" />
     </fragment>
 </navigation>

@@ -14,13 +14,20 @@ import androidx.navigation.fragment.findNavController
 import com.carstore.app.R
 import com.carstore.app.databinding.FragmentLoginBinding
 import com.carstore.app.viewmodel.LoginViewModel
+import com.google.firebase.auth.FirebaseAuth
 
 
 class LoginFragment : Fragment() {
-    private var _binding : FragmentLoginBinding?  = null
+    private var _binding: FragmentLoginBinding? = null
     val binding get() = _binding!!
-    private val loginViewModel : LoginViewModel by viewModels()
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    val auth: FirebaseAuth = FirebaseAuth.getInstance()
+    private val loginViewModel: LoginViewModel by viewModels()
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -44,21 +51,22 @@ class LoginFragment : Fragment() {
             findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
         }
 
-        binding.loginBtn.setOnClickListener {
+        binding.loginBtn.setOnClickListener { viewFromBtn ->
             val email = binding.emailET.text.toString()
             val password = binding.passwordET.text.toString()
-            loginViewModel.login(email, password, it, requireActivity())
+            loginViewModel.login(email, password, viewFromBtn, requireActivity(), auth)
         }
 
-        binding.forgotPassword.setOnClickListener {
-            val alert_view = LayoutInflater.from(requireContext()).inflate(R.layout.alert_view,null)
+        binding.forgotPassword.setOnClickListener { viewFromBtn ->
+            val alert_view =
+                LayoutInflater.from(requireContext()).inflate(R.layout.alert_view, null)
             val emailAddressEt = alert_view.findViewById<EditText>(R.id.emailAddressET)
             val alertDialog = AlertDialog.Builder(requireContext())
             alertDialog.setTitle("Reset password")
             alertDialog.setView(alert_view)
             alertDialog.setPositiveButton("Send link", OnClickListener { dialog, which ->
                 val emailForSendResetLink = emailAddressEt.text.toString()
-                loginViewModel.resetPassword(emailForSendResetLink,it)
+                loginViewModel.resetPassword(emailForSendResetLink, viewFromBtn, auth)
             })
             alertDialog.show()
 

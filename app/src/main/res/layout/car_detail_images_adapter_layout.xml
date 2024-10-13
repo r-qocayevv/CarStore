@@ -9,6 +9,7 @@
         android:id="@+id/imageView"
         android:layout_width="0dp"
         android:layout_height="366dp"
+        android:contentDescription="@string/car_image"
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -20,6 +20,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
@@ -27,4 +28,26 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/favoritesText" />
+
+    <ImageView
+        android:id="@+id/noLikedPostImageView"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:contentDescription="@string/no_liked_post"
+        android:src="@drawable/ic_no_liked_post"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/noLikedPostText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_bold"
+        android:text="@string/you_haven_t_added_any_cars_to_your_favorites"
+        app:layout_constraintEnd_toEndOf="@+id/noLikedPostImageView"
+        app:layout_constraintStart_toStartOf="@+id/noLikedPostImageView"
+        app:layout_constraintTop_toBottomOf="@+id/noLikedPostImageView" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

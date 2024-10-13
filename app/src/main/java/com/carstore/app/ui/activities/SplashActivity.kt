@@ -18,10 +18,12 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class SplashActivity : AppCompatActivity(),LifecycleOwner {
+
     private var _binding : ActivitySplashBinding? = null
     val binding get() = _binding!!
     private val splashScreenViewModel : SplashScreenViewModel by viewModels()
     lateinit var auth : FirebaseAuth
+
     override fun onCreate(savedInstanceState: Bundle?) {
         _binding = ActivitySplashBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)

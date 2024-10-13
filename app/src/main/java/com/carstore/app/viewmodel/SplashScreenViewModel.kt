@@ -9,6 +9,7 @@ import dagger.hilt.android.scopes.ViewModelScoped
 
 @ViewModelScoped
 class SplashScreenViewModel(application : Application) : AndroidViewModel(application){
+
     private val _currentUserIsNull : MutableLiveData<Boolean> = MutableLiveData()
     var currentUserIsNull : LiveData<Boolean> = _currentUserIsNull
 

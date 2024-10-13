@@ -8,12 +8,18 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.carstore.app.R
 import com.carstore.app.viewmodel.ChangePasswordViewModel
+import com.google.firebase.auth.FirebaseAuth
 
 
 class ChangePasswordFragment : Fragment() {
-    val changePasswordViewModel : ChangePasswordViewModel by viewModels()
+    val auth = FirebaseAuth.getInstance()
+    val changePasswordViewModel: ChangePasswordViewModel by viewModels()
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         return inflater.inflate(R.layout.fragment_change_password, container, false)
     }
 

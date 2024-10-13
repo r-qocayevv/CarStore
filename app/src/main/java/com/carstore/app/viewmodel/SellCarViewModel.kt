@@ -1,8 +1,6 @@
 package com.carstore.app.viewmodel
 
-import android.app.Activity
 import android.app.Application
-import android.content.Intent
 import android.net.Uri
 import android.view.View
 import android.widget.Toast
@@ -10,13 +8,11 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import com.carstore.app.R
 import com.carstore.app.models.Car
 import com.carstore.app.models.CarBrandsAndModels
 import com.carstore.app.repository.CarBrandsAndModelsRepository
-import com.carstore.app.ui.activities.MainActivity
 import com.google.android.gms.tasks.Task
 import com.google.android.gms.tasks.Tasks
 import com.google.firebase.Firebase

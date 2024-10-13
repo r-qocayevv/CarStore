@@ -1,7 +1,6 @@
 package com.carstore.app.ui.fragments.auth
 
 import android.app.AlertDialog
-import android.content.DialogInterface.OnClickListener
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -64,10 +63,10 @@ class LoginFragment : Fragment() {
             val alertDialog = AlertDialog.Builder(requireContext())
             alertDialog.setTitle("Reset password")
             alertDialog.setView(alert_view)
-            alertDialog.setPositiveButton("Send link", OnClickListener { dialog, which ->
+            alertDialog.setPositiveButton("Send link"){ _, _ ->
                 val emailForSendResetLink = emailAddressEt.text.toString()
                 loginViewModel.resetPassword(emailForSendResetLink, viewFromBtn, auth)
-            })
+            }
             alertDialog.show()
 
         }

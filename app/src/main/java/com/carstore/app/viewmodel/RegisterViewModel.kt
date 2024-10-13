@@ -12,10 +12,8 @@ import androidx.lifecycle.viewModelScope
 import com.carstore.app.models.User
 import com.carstore.app.ui.activities.MainActivity
 import com.google.android.material.snackbar.Snackbar
-import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.database
 import dagger.hilt.android.scopes.ViewModelScoped
 import kotlinx.coroutines.launch
 

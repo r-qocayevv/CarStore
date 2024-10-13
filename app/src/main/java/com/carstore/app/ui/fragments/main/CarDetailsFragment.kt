@@ -13,8 +13,6 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.carstore.app.R
 import com.carstore.app.adapters.CarDetailImageAdapter
 import com.carstore.app.databinding.FragmentCarDetailsBinding

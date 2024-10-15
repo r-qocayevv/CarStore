@@ -8,6 +8,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.carstore.app.databinding.CarsRowLayoutBinding
 import com.carstore.app.models.Car
 import com.carstore.app.ui.fragments.main.FavoritesFragmentDirections
+import com.carstore.app.util.Constants.Companion.BRAND_STORAGE_NAME
+import com.carstore.app.util.Constants.Companion.DESCRIPTION_STORAGE_NAME
+import com.carstore.app.util.Constants.Companion.IMAGE_STORAGE_NAME
+import com.carstore.app.util.Constants.Companion.LOCATION_STORAGE_NAME
+import com.carstore.app.util.Constants.Companion.MODEL_STORAGE_NAME
+import com.carstore.app.util.Constants.Companion.PRICE_STORAGE_NAME
+import com.carstore.app.util.Constants.Companion.UID_OF_SHARING_USER
+import com.carstore.app.util.Constants.Companion.YEAR_STORAGE_NAME
 import com.carstore.app.util.MyDiffUtilClass
 import com.squareup.picasso.Picasso
 
@@ -50,15 +58,15 @@ class FavoritesAdapter() : RecyclerView.Adapter<FavoritesAdapter.Holder>() {
     }
 
     private fun convertMapToCarClass (map : Map<String,Any>) : Car {
-        val uidOfSharingUser = map["uidOfSharingUser"] as String
-        val model = map["model"] as String
-        val brand = map["brand"] as String
-        val description = map["description"] as String
-        val location = map["location"] as String
+        val uidOfSharingUser = map[UID_OF_SHARING_USER] as String
+        val model = map[MODEL_STORAGE_NAME] as String
+        val brand = map[BRAND_STORAGE_NAME] as String
+        val description = map[DESCRIPTION_STORAGE_NAME] as String
+        val location = map[LOCATION_STORAGE_NAME] as String
         val new = map["new"] as Boolean
-        val price = map["price"] as Long
-        val year = map["year"] as Long
-        val image = map["image"] as List<String>
+        val price = map[PRICE_STORAGE_NAME] as Long
+        val year = map[YEAR_STORAGE_NAME] as Long
+        val image = map[IMAGE_STORAGE_NAME] as List<String>
 
         return Car(uidOfSharingUser,model,price.toInt(),year.toInt(),brand,location,description,image,new)
     }

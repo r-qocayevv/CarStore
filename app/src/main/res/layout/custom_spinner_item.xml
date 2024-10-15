@@ -3,6 +3,6 @@
     android:id="@+id/spinner_item"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#EDEEEF"
+    android:background="@color/cardView_background_color"
     android:padding="8dp"
-    android:textColor="@color/black" />
+    android:textColor="@color/ic_color" />

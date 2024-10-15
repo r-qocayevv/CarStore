@@ -22,12 +22,14 @@ import android.widget.AdapterView.OnItemSelectedListener
 import android.widget.ArrayAdapter
 import android.widget.RadioButton
 import android.widget.Toast
+import androidx.activity.addCallback
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.carstore.app.R
@@ -60,9 +62,12 @@ class SellCarFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        activity?.let {
-            it.findViewById<BottomNavigationView>(R.id.bottomNavBar)?.visibility = View.INVISIBLE
-            it.window?.statusBarColor = ContextCompat.getColor(requireContext(),R.color.orange)
+        activity?.apply {
+            findViewById<BottomNavigationView>(R.id.bottomNavBar)?.visibility = View.INVISIBLE
+            window?.statusBarColor = ContextCompat.getColor(requireContext(),R.color.orange)
+            onBackPressedDispatcher.addCallback(viewLifecycleOwner){
+                findNavController().navigate(R.id.action_sellCarFragment_to_homeFragment)
+            }
         }
         binding.imagesRecyclerView.adapter = adImagesAdapter
         binding.imagesRecyclerView.layoutManager = LinearLayoutManager(requireContext(),RecyclerView.HORIZONTAL,false)

@@ -17,7 +17,7 @@
         android:layout_gravity="start"
         android:background="@color/backgroundColor"
         app:headerLayout="@layout/header"
-        app:menu="@menu/sidebar_menu" />
+        app:menu="@menu/sidebar_menu"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -58,17 +58,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/recommendedText" />
 
-        <TextView
-            android:id="@+id/seeAllText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins_medium"
-            android:text="@string/see_all"
-            android:textColor="#040415"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="@+id/recommendedText"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/recommendedText" />
 
         <SearchView
             android:id="@+id/searchView"

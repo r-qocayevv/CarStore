@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout.DrawerListener
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
@@ -65,7 +66,33 @@ class HomeFragment : Fragment(), NavigationView.OnNavigationItemSelectedListener
         binding.sidebarNavView.bringToFront()
 
         binding.sidebarNavView.setNavigationItemSelectedListener(this)
-
+        binding.drawerLayout.addDrawerListener(object : DrawerListener {
+            override fun onDrawerSlide(drawerView: View, slideOffset: Float) {
+                if (slideOffset != 0f) {
+                    if (binding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
+                        activity?.apply {
+                            window?.statusBarColor =
+                                ContextCompat.getColor(requireContext(), R.color.backgroundColor)
+                            findViewById<BottomNavigationView>(R.id.bottomNavBar).visibility =
+                                View.VISIBLE
+                        }
+                    }else {
+                        activity?.apply {
+                            window?.statusBarColor =
+                                ContextCompat.getColor(requireContext(), R.color.orange)
+                            findViewById<BottomNavigationView>(R.id.bottomNavBar).visibility =
+                                View.INVISIBLE
+                        }
+                    }
+                }
+            }
+            override fun onDrawerOpened(drawerView: View) {
+            }
+            override fun onDrawerClosed(drawerView: View) {
+            }
+            override fun onDrawerStateChanged(newState: Int) {
+            }
+        })
     }
 
     fun logout() {
@@ -90,6 +117,8 @@ class HomeFragment : Fragment(), NavigationView.OnNavigationItemSelectedListener
         }
         return true
     }
+
+
 
     override fun onDestroy() {
         _binding = null

@@ -10,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.activity.addCallback
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -43,9 +44,16 @@ class CarDetailsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentCarDetailsBinding.inflate(inflater, container, false)
-        activity?.window?.findViewById<BottomNavigationView>(R.id.bottomNavBar)?.visibility =
-            View.INVISIBLE
-        activity?.window?.statusBarColor = ContextCompat.getColor(requireContext(), R.color.orange)
+        activity?.apply {
+            window?.findViewById<BottomNavigationView>(R.id.bottomNavBar)?.visibility =
+                View.INVISIBLE
+            window?.statusBarColor = ContextCompat.getColor(requireContext(), R.color.orange)
+            onBackPressedDispatcher.addCallback(viewLifecycleOwner){
+                findNavController().navigate(R.id.action_carDetailsFragment_to_homeFragment)
+            }
+        }
+
+
         return binding.root
     }
 
@@ -130,9 +138,7 @@ class CarDetailsFragment : Fragment() {
             }
             alertDialog.show()
         }
-
     }
-
 
     override fun onDestroy() {
         _binding = null

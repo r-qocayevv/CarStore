@@ -8,13 +8,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.carstore.app.databinding.AdImagesLayoutBinding
 import com.carstore.app.util.MyDiffUtilClass
 
-class AdImagesAdapter ()  : RecyclerView.Adapter<AdImagesAdapter.Holder>(){
+class AdImagesAdapter  : RecyclerView.Adapter<AdImagesAdapter.Holder>(){
 
-    var carImagesList = emptyList<String>()
+    private var carImagesList = emptyList<String>()
 
-    class Holder (var binding : AdImagesLayoutBinding) : RecyclerView.ViewHolder(binding.root){
-
-    }
+    class Holder (var binding : AdImagesLayoutBinding) : RecyclerView.ViewHolder(binding.root)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
         val layoutInflater = LayoutInflater.from(parent.context)
         return Holder(AdImagesLayoutBinding.inflate(layoutInflater,parent,false))

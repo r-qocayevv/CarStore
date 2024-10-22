@@ -48,7 +48,7 @@ class CarDetailsFragment : Fragment() {
             window?.findViewById<BottomNavigationView>(R.id.bottomNavBar)?.visibility =
                 View.INVISIBLE
             window?.statusBarColor = ContextCompat.getColor(requireContext(), R.color.orange)
-            onBackPressedDispatcher.addCallback(viewLifecycleOwner){
+            onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
                 findNavController().navigate(R.id.action_carDetailsFragment_to_homeFragment)
             }
         }
@@ -69,7 +69,7 @@ class CarDetailsFragment : Fragment() {
             if (auth.currentUser?.uid != it.uidOfSharingUser) {
                 binding.deleteImage.visibility = View.GONE
             }
-            binding.conditionText.text = if (it.new) {
+            binding.conditionText.text = if (it.isNew) {
                 " New"
             } else {
                 " Used"
@@ -112,7 +112,7 @@ class CarDetailsFragment : Fragment() {
 
         binding.callNowBtn.setOnClickListener {
             val intent = Intent(Intent.ACTION_DIAL)
-            intent.setData(Uri.parse("tel:"+phoneNumber))
+            intent.setData(Uri.parse("tel:$phoneNumber"))
             startActivity(intent)
         }
 

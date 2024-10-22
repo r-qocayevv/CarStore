@@ -27,7 +27,6 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -39,8 +38,6 @@ import com.carstore.app.models.Car
 import com.carstore.app.viewmodel.SellCarViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.snackbar.Snackbar
-import com.google.firebase.storage.FirebaseStorage
-import com.google.firebase.storage.StorageReference
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -144,7 +141,7 @@ class SellCarFragment : Fragment() {
             if (VERSION.SDK_INT >= VERSION_CODES.TIRAMISU){
                 if(ContextCompat.checkSelfPermission(requireContext(),Manifest.permission.READ_MEDIA_IMAGES) != PackageManager.PERMISSION_GRANTED){
                     if (ActivityCompat.shouldShowRequestPermissionRationale(requireActivity(),Manifest.permission.READ_MEDIA_IMAGES)){
-                        Snackbar.make(it,"Permission nedded for gallery!",Snackbar.LENGTH_INDEFINITE).setAction("OK"){
+                        Snackbar.make(it,"Permission needed for gallery!",Snackbar.LENGTH_INDEFINITE).setAction("OK"){
                             permissionLauncher.launch(Manifest.permission.READ_MEDIA_IMAGES)
                         }.show()
                     }else {
@@ -156,7 +153,7 @@ class SellCarFragment : Fragment() {
             }else{
                 if(ContextCompat.checkSelfPermission(requireContext(),Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED){
                     if (ActivityCompat.shouldShowRequestPermissionRationale(requireActivity(),Manifest.permission.READ_EXTERNAL_STORAGE)){
-                        Snackbar.make(it,"Permission nedded for gallery!",Snackbar.LENGTH_INDEFINITE).setAction("OK"){
+                        Snackbar.make(it,"Permission needed for gallery!",Snackbar.LENGTH_INDEFINITE).setAction("OK"){
                             permissionLauncher.launch(Manifest.permission.READ_EXTERNAL_STORAGE)
                         }.show()
                     }else {
@@ -209,7 +206,7 @@ class SellCarFragment : Fragment() {
                 intent.setAction(Intent.ACTION_PICK)
                 activityResultLauncher.launch(intent)
             }else {
-                Toast.makeText(requireContext(),"Permission nedded for gallery!",Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(),"Permission needed for gallery!",Toast.LENGTH_SHORT).show()
             }
         }
     }

@@ -1,5 +1,6 @@
 package com.carstore.app.ui.activities
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
@@ -17,6 +18,7 @@ import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
+@SuppressLint("CustomSplashScreen")
 class SplashActivity : AppCompatActivity(),LifecycleOwner {
 
     private var _binding : ActivitySplashBinding? = null

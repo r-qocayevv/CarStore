@@ -12,6 +12,7 @@ class Constants {
         const val PRICE_STORAGE_NAME = "price"
         const val YEAR_STORAGE_NAME = "year"
         const val IMAGE_STORAGE_NAME = "image"
+        const val IS_NEW = "new"
 
     }
 

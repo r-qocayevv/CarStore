@@ -17,11 +17,7 @@ class SplashScreenViewModel(application : Application) : AndroidViewModel(applic
         if (auth.currentUser != null) {
             auth.currentUser?.reload()?.addOnCompleteListener {
                 val currentUser = auth.currentUser
-                if (currentUser != null) {
-                    _currentUserIsNull.value = false
-                }else {
-                    _currentUserIsNull.value = true
-                }
+                _currentUserIsNull.value = currentUser == null
             }
         }else {
             _currentUserIsNull.value = true

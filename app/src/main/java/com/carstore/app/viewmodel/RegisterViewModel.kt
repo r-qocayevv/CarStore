@@ -64,7 +64,7 @@ class RegisterViewModel(application: Application) : AndroidViewModel(application
         }
     }
 
-    fun addUserInfoToDB(
+    private fun addUserInfoToDB(
         auth: FirebaseAuth,
         fullName: String,
         emailAddress: String,

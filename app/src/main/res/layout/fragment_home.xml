@@ -17,12 +17,24 @@
         android:layout_gravity="start"
         android:background="@color/backgroundColor"
         app:headerLayout="@layout/header"
-        app:menu="@menu/sidebar_menu"/>
+        app:menu="@menu/sidebar_menu" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="16dp">
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminateTint="@color/orange"
+            app:layout_constraintTop_toTopOf="@id/rv"
+            app:layout_constraintBottom_toBottomOf="@id/rv"
+            app:layout_constraintStart_toStartOf="@id/rv"
+            app:layout_constraintEnd_toEndOf="@id/rv"/>
+
 
         <ImageView
             android:id="@+id/sidebarMenu"

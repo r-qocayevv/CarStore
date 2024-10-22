@@ -10,9 +10,7 @@ import com.squareup.picasso.Picasso
 class CarDetailImageAdapter (private val carImages : List<String>) : RecyclerView.Adapter<CarDetailImageAdapter.Holder>() {
 
 
-    class Holder(val binding : CarDetailImagesAdapterLayoutBinding) : RecyclerView.ViewHolder(binding.root) {
-
-    }
+    class Holder(val binding : CarDetailImagesAdapterLayoutBinding) : RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
         val layoutInflater = LayoutInflater.from(parent.context)

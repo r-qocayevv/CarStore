@@ -63,7 +63,7 @@ class ProfileViewModel(application: Application) : AndroidViewModel(application)
                             if (task.isSuccessful) {
                                 Snackbar.make(
                                     view,
-                                    "Please log in with the new email after verifying the email",
+                                    "Please log in with the isNew email after verifying the email",
                                     Snackbar.LENGTH_INDEFINITE
                                 )
                                     .setAction("OK") {}.show()
@@ -95,7 +95,7 @@ class ProfileViewModel(application: Application) : AndroidViewModel(application)
         }
     }
 
-    fun addNewInfoInDB(
+    private fun addNewInfoInDB(
         fullName: String,
         phoneNumber: String,
         emailAddress: String,
@@ -117,17 +117,4 @@ class ProfileViewModel(application: Application) : AndroidViewModel(application)
         }
     }
 
-    fun checkUserEmail(
-        emailAddressFromDB: String,
-        auth: FirebaseAuth,
-        db: FirebaseDatabase
-    ): String {
-        val currentUserEmail = auth.currentUser?.email
-        if (emailAddressFromDB != currentUserEmail) {
-            db.getReference(auth.uid!!).child("emailAddress").setValue(currentUserEmail)
-            return currentUserEmail!!
-        } else {
-            return emailAddressFromDB
-        }
-    }
 }

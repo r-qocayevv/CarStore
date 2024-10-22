@@ -10,7 +10,7 @@ class ChangePasswordViewModel(application: Application) : AndroidViewModel(appli
     fun changePassword(
         currentPassword: String,
         newPassword: String,
-        repatedPassword: String,
+        repeatedPassword: String,
         auth: FirebaseAuth
     ) {
         auth.currentUser?.updatePassword(currentPassword)

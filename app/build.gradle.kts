@@ -89,6 +89,13 @@ dependencies {
     //View pager
     implementation (libs.androidx.viewpager2)
 
+    //Room database
+    implementation (libs.androidx.room.runtime)
+    annotationProcessor (libs.androidx.room.compiler)
+    implementation(libs.androidx.room.ktx)
+    //noinspection KaptUsageInsteadOfKsp
+    kapt(libs.androidx.room.compiler)
+
 }
     kapt {
         correctErrorTypes = true

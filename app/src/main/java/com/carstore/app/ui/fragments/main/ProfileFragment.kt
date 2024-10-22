@@ -21,7 +21,7 @@ class ProfileFragment : Fragment() {
     val binding get() = _binding!!
     private val auth = FirebaseAuth.getInstance()
     private val db = Firebase.database
-    val profileViewModel: ProfileViewModel by viewModels()
+    private val profileViewModel: ProfileViewModel by viewModels()
     private var userFullName = ""
     private var userPhoneNumber = ""
     private var userEmailAddress = ""
@@ -83,7 +83,7 @@ class ProfileFragment : Fragment() {
     }
 
 
-    fun visibilityActions(progressBarLoading: Boolean) {
+    private fun visibilityActions(progressBarLoading: Boolean) {
         if (progressBarLoading) {
             binding.progressBar.visibility = View.VISIBLE
             binding.constraintLayout.visibility = View.INVISIBLE

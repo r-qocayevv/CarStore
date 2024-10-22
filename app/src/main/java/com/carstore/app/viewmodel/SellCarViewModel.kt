@@ -52,7 +52,6 @@ class SellCarViewModel @Inject constructor(private val repository : CarBrandsAnd
                 uploadTask.addOnFailureListener { exception ->
                     Toast.makeText(getApplication<Application>().applicationContext, exception.localizedMessage, Toast.LENGTH_LONG).show()
                 }
-
                 val urlTask = uploadTask.continueWithTask { task ->
                     if (!task.isSuccessful) {
                         task.exception?.let { throw it }
@@ -88,11 +87,7 @@ class SellCarViewModel @Inject constructor(private val repository : CarBrandsAnd
     }
 
     fun isCarNew (usage : String) : Boolean {
-        if (usage == "New") {
-            return true
-        }else  {
-            return false
-        }
+        return usage == "New"
     }
 
     //Retrofit

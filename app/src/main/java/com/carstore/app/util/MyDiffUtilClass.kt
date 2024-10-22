@@ -1,6 +1,5 @@
 package com.carstore.app.util
 
-import android.net.Uri
 import androidx.recyclerview.widget.DiffUtil
 
 class MyDiffUtilClass (private val oldList: List<*>,

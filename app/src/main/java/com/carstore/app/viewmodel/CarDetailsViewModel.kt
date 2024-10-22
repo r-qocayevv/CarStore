@@ -26,11 +26,7 @@ class CarDetailsViewModel(application: Application) : AndroidViewModel(applicati
         viewModelScope.launch {
             database.child(currentUserUID).child("favorites").child(postID).get()
                 .addOnSuccessListener { dataSnapshot ->
-                    if (dataSnapshot.value == null) {
-                        _likeStatus.value = false
-                    } else {
-                        _likeStatus.value = true
-                    }
+                    _likeStatus.value = dataSnapshot.value != null
                     _loadingLikeStatus.value = false
                 }
         }

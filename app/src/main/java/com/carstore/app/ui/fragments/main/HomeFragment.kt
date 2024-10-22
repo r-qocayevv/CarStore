@@ -24,8 +24,9 @@ import com.google.android.material.navigation.NavigationView
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.firestore
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class HomeFragment : Fragment(), NavigationView.OnNavigationItemSelectedListener {
     private var _binding: FragmentHomeBinding? = null
     val binding get() = _binding!!
@@ -45,13 +46,25 @@ class HomeFragment : Fragment(), NavigationView.OnNavigationItemSelectedListener
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        activity?.window?.statusBarColor =
-            ContextCompat.getColor(requireContext(), R.color.backgroundColor)
-        activity?.findViewById<BottomNavigationView>(R.id.bottomNavBar)?.visibility = View.VISIBLE
+        activity?.apply {
+            window?.statusBarColor =
+                ContextCompat.getColor(requireContext(), R.color.backgroundColor)
+            findViewById<BottomNavigationView>(R.id.bottomNavBar)?.visibility = View.VISIBLE
+        }
         binding.rv.layoutManager = GridLayoutManager(requireContext(), 2)
         binding.rv.adapter = adapter
 
         homeViewModel.showAllPost(firestore)
+
+        homeViewModel.loadingProgressBar.observe(viewLifecycleOwner) { value ->
+            if (value) {
+                binding.progressBar.visibility = View.VISIBLE
+                binding.rv.visibility=  View.INVISIBLE
+            }else {
+                binding.progressBar.visibility = View.INVISIBLE
+                binding.rv.visibility = View.VISIBLE
+            }
+        }
 
         homeViewModel.allCarPost.observe(viewLifecycleOwner) { allCarPostList ->
             adapter.setData(allCarPostList)
@@ -61,11 +74,12 @@ class HomeFragment : Fragment(), NavigationView.OnNavigationItemSelectedListener
         }
 
         binding.sidebarMenu.setOnClickListener {
+            binding.sidebarNavView.bringToFront()
             binding.drawerLayout.openDrawer(GravityCompat.START)
         }
-        binding.sidebarNavView.bringToFront()
 
         binding.sidebarNavView.setNavigationItemSelectedListener(this)
+
         binding.drawerLayout.addDrawerListener(object : DrawerListener {
             override fun onDrawerSlide(drawerView: View, slideOffset: Float) {
                 if (slideOffset != 0f) {
@@ -95,7 +109,7 @@ class HomeFragment : Fragment(), NavigationView.OnNavigationItemSelectedListener
         })
     }
 
-    fun logout() {
+    private fun logout() {
         val alertDialog = AlertDialog.Builder(requireContext())
         alertDialog.setTitle("Do you want to log out?")
         alertDialog.setPositiveButton("Yes") { _, _ ->
@@ -117,7 +131,6 @@ class HomeFragment : Fragment(), NavigationView.OnNavigationItemSelectedListener
         }
         return true
     }
-
 
 
     override fun onDestroy() {

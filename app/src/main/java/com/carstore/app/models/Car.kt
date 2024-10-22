@@ -1,6 +1,5 @@
 package com.carstore.app.models
 
-import android.net.Uri
 import java.io.Serializable
 
 class Car (val uidOfSharingUser : String,
@@ -11,5 +10,4 @@ class Car (val uidOfSharingUser : String,
            val location : String,
            val description : String,
            val image : List<String>,
-           val new : Boolean) : Serializable{
-}
+           val isNew : Boolean) : Serializable

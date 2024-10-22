@@ -20,7 +20,7 @@ class FavoritesViewModel(application: Application) : AndroidViewModel(applicatio
     private var _likedPostListIsEmpty : MutableLiveData<Boolean> = MutableLiveData()
     val likedPostListIsEmpty : LiveData<Boolean> = _likedPostListIsEmpty
 
-    fun getLikedPostID (db : DatabaseReference,currentUserUID: String,) {
+    fun getLikedPostID (db : DatabaseReference,currentUserUID: String) {
         val likedPostsID = mutableListOf<String>()
         viewModelScope.launch{
             db.child(currentUserUID).child("favorites").get().addOnSuccessListener { dataSnapshot ->

@@ -1,5 +1,6 @@
 package com.carstore.app.adapters
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.Navigation
@@ -9,15 +10,15 @@ import com.carstore.app.databinding.CarsRowLayoutBinding
 import com.carstore.app.models.Car
 import com.carstore.app.ui.fragments.main.HomeFragmentDirections
 import com.carstore.app.util.MyDiffUtilClass
+import com.google.android.material.snackbar.Snackbar
 import com.squareup.picasso.Picasso
 
-class AllCarsAdapter() : RecyclerView.Adapter<AllCarsAdapter.Holder>() {
-    var carList: List<Car> = emptyList()
+class AllCarsAdapter : RecyclerView.Adapter<AllCarsAdapter.Holder>() {
+    private var carList: List<Car> = emptyList()
     var postIdAndCarPost = HashMap<Car,String>()
 
-    inner class Holder(val binding: CarsRowLayoutBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class Holder(val binding: CarsRowLayoutBinding) : RecyclerView.ViewHolder(binding.root)
 
-    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
         val inflater =LayoutInflater.from(parent.context)
@@ -28,6 +29,7 @@ class AllCarsAdapter() : RecyclerView.Adapter<AllCarsAdapter.Holder>() {
         return carList.size
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: Holder, position: Int) {
         val currentCarPost  = carList[position]
         val binding = holder.binding
@@ -38,11 +40,14 @@ class AllCarsAdapter() : RecyclerView.Adapter<AllCarsAdapter.Holder>() {
         binding.cardView.setOnClickListener { viewFromButton ->
             val documentID = postIdAndCarPost[currentCarPost]
             if (documentID != null){
-                val action = HomeFragmentDirections.actionHomeFragmentToCarDetailsFragment(documentID,currentCarPost,)
+                val action = HomeFragmentDirections.actionHomeFragmentToCarDetailsFragment(documentID,currentCarPost)
                 Navigation.findNavController(viewFromButton).navigate(action)
+            }else {
+                Snackbar.make(viewFromButton,"Please check your internet connection!",Snackbar.LENGTH_SHORT).show()
             }
 
         }
+
 
     }
 
